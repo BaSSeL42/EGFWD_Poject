@@ -3,6 +3,7 @@
 #include "Bit_Math.h"
 #include "DIO.h"
 #include "GPT.h"
+#include "SysTick.h"
 
 #define TATOCINT		0
 
@@ -19,7 +20,9 @@ int main(void)
 	PortF_Pin4_CFG.CurrentDrive = Port_CurrDrive_2mA;
 	
 	Port_Init(&PortF_Pin4_CFG);
-	TIMER0A_Init(1000); /* 1000 ms  --> 1 sec */
+	
+	
+	SysTick_Init(1000); /* 1000 ms  --> 1 sec */
 	
 	
 	
@@ -35,8 +38,19 @@ int main(void)
 
 
 
-void TIMER0A_Handler(void)
+
+
+void SysTick_Handler(void)
 {
-	SetBit(TIMER0_REG.GPTMICR, TATOCINT); /*Clear Flag TIMER0A Interrupt*/
 	Dio_FlipChannel(Dio_Channel_F4);
 }
+
+
+
+
+/*************
+void TIMER0A_Handler(void)
+{
+	SetBit(TIMER0_REG.GPTMICR, TATOCINT);   Clear Flag TIMER0A Interrupt
+	Dio_FlipChannel(Dio_Channel_F4);
+}*/
