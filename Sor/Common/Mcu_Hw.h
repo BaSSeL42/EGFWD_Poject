@@ -26,44 +26,86 @@ typedef struct
 }str_GPIOPCTL_REG;
 
 
-typedef struct	
-{
-	  uint32 GPIODATA    ;
-    uint32 GPIODIR     ;
-    uint32 GPIOIS      ;
-    uint32 GPIOIBE     ;
-    uint32 GPIOIEV     ;
-    uint32 GPIOIM      ;
-    uint32 GPIORIS     ;
-    uint32 GPIOMIS     ;
-    uint32 GPIOICR     ;
-    uint32 GPIOAFSEL   ; /*offset : 0x420 -> 424 */
+//typedef struct	
+//{
+//	  uint32 GPIODATA    ;
+//
+//    uint32 GPIODIR    ;
+//    uint32 GPIOIS      ;
+//    uint32 GPIOIBE     ;
+//    uint32 GPIOIEV     ;
+//    uint32 GPIOIM      ;
+//    uint32 GPIORIS     ;
+//    uint32 GPIOMIS     ;
+//    uint32 GPIOICR     ;
+//    uint32 GPIOAFSEL   ; /*offset : 0x420 -> 424 */
+//	
+//    uint8 Reserved_2[0xDC];
+//	
+//    uint32 GPIODR2R    ; /*offset : 0x500 */
+//    uint32 GPIODR4R    ;
+//    uint32 GPIODR8R    ;
+//    uint32 GPIOODR     ;
+//    uint32 GPIOPUR     ;
+//    uint32 GPIOPDR     ;
+//    uint32 GPIOSLR     ;
+//    uint32 GPIODEN     ;
+//    uint32 GPIOLOCK    ;
+//    uint32 GPIOCR      ;
+//    uint32 GPIOAMSEL   ;
+//    str_GPIOPCTL_REG GPIOPCTL    ;
+//    uint32 GPIOADCCTL  ;
+//    uint32 GPIODMACTL  ;
+//	
+//}PORT_RegType ;
+//	
+//
+//#define PORTA_REG     (*((volatile PORT_RegType*)0x40004000))
+//#define PORTB_REG     (*((volatile PORT_RegType*)0x40005000))
+//#define PORTC_REG     (*((volatile PORT_RegType*)0x40006000))
+//#define PORTD_REG     (*((volatile PORT_RegType*)0x40007000))
+//#define PORTE_REG     (*((volatile PORT_RegType*)0x40024000))
+//#define PORTF_REG     (*((volatile PORT_RegType*)0x40025000))	
 
-    uint8 Reserved_2[0xDC];
-    uint32 GPIODR2R    ; /*offset : 0x500 */
-    uint32 GPIODR4R    ;
-    uint32 GPIODR8R    ;
-    uint32 GPIOODR     ;
-    uint32 GPIOPUR     ;
-    uint32 GPIOPDR     ;
-    uint32 GPIOSLR     ;
-    uint32 GPIODEN     ;
-    uint32 GPIOLOCK    ;
-    uint32 GPIOCR      ;
-    uint32 GPIOAMSEL   ;
-    str_GPIOPCTL_REG GPIOPCTL    ;
-    uint32 GPIOADCCTL  ;
-    uint32 GPIODMACTL  ;
-	
-}PORT_RegType ;
-	
 
-#define PORTA_REG     (*((volatile PORT_RegType*)0x40004000))
-#define PORTB_REG     (*((volatile PORT_RegType*)0x40005000))
-#define PORTC_REG     (*((volatile PORT_RegType*)0x40006000))
-#define PORTD_REG     (*((volatile PORT_RegType*)0x40007000))
-#define PORTE_REG     (*((volatile PORT_RegType*)0x40024000))
-#define PORTF_REG     (*((volatile PORT_RegType*)0x40025000))
+
+#define PORTA_GPIODATA_REG     	(*((volatile uint32*)(0x40004000 + 0x3FC)))
+#define PORTA_GPIODIR_REG     	(*((volatile uint32*)(0x40004000 + 0x400)))
+#define PORTA_GPIOIM_REG     		(*((volatile uint32*)(0x40004000 + 0x410)))
+#define PORTA_GPIOAFSEL_REG     (*((volatile uint32*)(0x40004000 + 0x528)))
+#define PORTA_GPIODEN_REG     	(*((volatile uint32*)(0x40004000 + 0x51C)))
+	
+	
+#define PORTB_GPIODATA_REG     	(*((volatile uint32*)(0x40005000 + 0x3FC)))
+#define PORTB_GPIODIR_REG     	(*((volatile uint32*)(0x40005000 + 0x400)))
+#define PORTB_GPIOIM_REG     		(*((volatile uint32*)(0x40005000 + 0x410)))
+#define PORTB_GPIOAFSEL_REG     (*((volatile uint32*)(0x40005000 + 0x528)))
+#define PORTB_GPIODEN_REG     	(*((volatile uint32*)(0x40005000 + 0x51C)))
+	
+#define PORTC_GPIODATA_REG     	(*((volatile uint32*)(0x40006000 + 0x3FC)))
+#define PORTC_GPIODIR_REG     	(*((volatile uint32*)(0x40006000 + 0x400)))
+#define PORTC_GPIOIM_REG     		(*((volatile uint32*)(0x40006000 + 0x410)))
+#define PORTC_GPIOAFSEL_REG     (*((volatile uint32*)(0x40006000 + 0x528)))
+#define PORTC_GPIODEN_REG     	(*((volatile uint32*)(0x40006000 + 0x51C)))
+	
+#define PORTD_GPIODATA_REG     	(*((volatile uint32*)(0x40007000 + 0x3FC)))
+#define PORTD_GPIODIR_REG     	(*((volatile uint32*)(0x40007000 + 0x400)))
+#define PORTD_GPIOIM_REG     		(*((volatile uint32*)(0x40007000 + 0x410)))
+#define PORTD_GPIOAFSEL_REG     (*((volatile uint32*)(0x40007000 + 0x528)))
+#define PORTD_GPIODEN_REG     	(*((volatile uint32*)(0x40007000 + 0x51C)))
+	
+#define PORTE_GPIODATA_REG     	(*((volatile uint32*)(0x40024000 + 0x3FC)))
+#define PORTE_GPIODIR_REG     	(*((volatile uint32*)(0x40024000 + 0x400)))
+#define PORTE_GPIOIM_REG     		(*((volatile uint32*)(0x40024000 + 0x410)))
+#define PORTE_GPIOAFSEL_REG     (*((volatile uint32*)(0x40024000 + 0x528)))
+#define PORTE_GPIODEN_REG     	(*((volatile uint32*)(0x40024000 + 0x51C)))
+
+#define PORTF_GPIODATA_REG     	(*((volatile uint32*)(0x40025000 + 0x3FC)))
+#define PORTF_GPIODIR_REG     	(*((volatile uint32*)(0x40025000 + 0x400)))
+#define PORTF_GPIOIM_REG     		(*((volatile uint32*)(0x40025000 + 0x410)))
+#define PORTF_GPIOAFSEL_REG     (*((volatile uint32*)(0x40025000 + 0x528)))
+#define PORTF_GPIODEN_REG     	(*((volatile uint32*)(0x40025000 + 0x51C)))
+
 
 
 /**********************************************************************************************************************
@@ -129,6 +171,14 @@ typedef struct
 #define WIDE_TIMER4_REG		(*((volatile TIMER_RegType*)0x4003E000))
 #define WIDE_TIMER5_REG		(*((volatile TIMER_RegType*)0x4003F000))
 
+/**********************************************************************************************************************
+* SYSTICK REGISTER
+*********************************************************************************************************************/
+#define SysTick_Base				 0xE000E000
+
+#define STCTRL				(*((volatile uint32*)(SysTick_Base + 0x010)))
+#define STRELOAD			(*((volatile uint32*)(SysTick_Base + 0x014)))
+#define STCURRENT			(*((volatile uint32*)(SysTick_Base + 0x018)))
 
 /**********************************************************************************************************************
  * SYSTEM CONTROL REGISTER

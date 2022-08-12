@@ -58,7 +58,7 @@ static uint32 GPT_SetRegTimeValue(uint32 time_ms);
 	 /*if frequency is F_CPU = 16MHZ*/
 	 uint32 result;
 	 result = (time_ms*1000000)/(uint32)62.5;
-	 return result;
+	 return result-1;
  }
 /**********************************************************************************************************************/
 /*  GLOBAL FUNCTIONS*/

@@ -18,37 +18,37 @@ STD_LevelType Dio_ReadChannel(enu_Dio_ChannelType ChannelId)
 	{
 		case Dio_Port_A:
 		{
-			ret = GetBit(PORTA_REG.GPIODATA, ChannelPos);
+			ret = GetBit(PORTA_GPIODATA_REG, ChannelPos);
 			break;
 		}
 		
 		case Dio_Port_B:
 		{
-			ret = GetBit(PORTB_REG.GPIODATA, ChannelPos);
+			ret = GetBit(PORTB_GPIODATA_REG, ChannelPos);
 			break;
 		}
 		
 		case Dio_Port_C:
 		{
-			ret = GetBit(PORTC_REG.GPIODATA, ChannelPos);
-			break;
-		}
-		
-		case Dio_Port_D:
-		{
-			ret = GetBit(PORTD_REG.GPIODATA, ChannelPos);
-			break;
-		}
-		
-		case Dio_Port_E:
-		{
-			ret = GetBit(PORTE_REG.GPIODATA, ChannelPos);
+			ret = GetBit(PORTC_GPIODATA_REG, ChannelPos); 
+			break;           
+		}                  
+											 
+		case Dio_Port_D:   
+		{                  
+			ret = GetBit(PORTD_GPIODATA_REG, ChannelPos);
+			break;           
+		}                  
+											 
+		case Dio_Port_E:   
+		{                  
+			ret = GetBit(PORTE_GPIODATA_REG, ChannelPos);
 			break;
 		}
 		
 		case Dio_Port_F:
 		{
-			ret = GetBit(PORTF_REG.GPIODATA, ChannelPos);
+			ret = GetBit(PORTF_GPIODATA_REG, ChannelPos);
 			break;
 		}
 		
@@ -74,63 +74,63 @@ void Dio_WriteChannel(enu_Dio_ChannelType ChannelId, STD_LevelType Level)
     case Dio_Port_A:
         if(Level == STD_low)
         {
-            ClrBit(PORTA_REG.GPIODATA,ChannelPos);
+            ClrBit(PORTA_GPIODATA_REG,ChannelPos);
         }
         else
         {
-            SetBit(PORTA_REG.GPIODATA,ChannelPos);
+            SetBit(PORTA_GPIODATA_REG,ChannelPos);
         }
         break;
 
     case Dio_Port_B:
         if(Level == STD_low)
         {
-            ClrBit(PORTB_REG.GPIODATA,ChannelPos);
+            ClrBit(PORTB_GPIODATA_REG,ChannelPos);
         }
         else
         {
-            SetBit(PORTB_REG.GPIODATA,ChannelPos);
+            SetBit(PORTB_GPIODATA_REG,ChannelPos);
         }
         break;
 
     case Dio_Port_C:
         if(Level == STD_low)
         {
-            ClrBit(PORTC_REG.GPIODATA,ChannelPos);
+            ClrBit(PORTC_GPIODATA_REG,ChannelPos);
         }
         else
         {
-            SetBit(PORTC_REG.GPIODATA,ChannelPos);
+            SetBit(PORTC_GPIODATA_REG,ChannelPos);
         }
         break;
     case Dio_Port_D:
         if(Level == STD_low)
         {
-            ClrBit(PORTD_REG.GPIODATA,ChannelPos);
+            ClrBit(PORTD_GPIODATA_REG,ChannelPos);
         }
         else
         {
-            SetBit(PORTD_REG.GPIODATA,ChannelPos);
+            SetBit(PORTD_GPIODATA_REG,ChannelPos);
         }
         break;
     case Dio_Port_E:
         if(Level == STD_low)
         {
-            ClrBit(PORTE_REG.GPIODATA,ChannelPos);
+            ClrBit(PORTE_GPIODATA_REG,ChannelPos);
         }
         else
         {
-            SetBit(PORTE_REG.GPIODATA,ChannelPos);
+            SetBit(PORTE_GPIODATA_REG,ChannelPos);
         }
         break;
     case Dio_Port_F:
         if(Level == STD_low)
         {
-            ClrBit(PORTF_REG.GPIODATA,ChannelPos);
+            ClrBit(PORTF_GPIODATA_REG,ChannelPos);
         }
         else
         {
-            SetBit(PORTF_REG.GPIODATA,ChannelPos);
+            SetBit(PORTF_GPIODATA_REG,ChannelPos);
         }
         break;
 				
@@ -150,24 +150,24 @@ uint8 Dio_ReadPort(enu_Dio_PortType PortId )
     switch(PortId)
     {
     case Dio_Port_A:
-        ret = (uint8)PORTA_REG.GPIODATA;
+        ret = (uint8)PORTA_GPIODATA_REG;
         break;
 
     case Dio_Port_B:
-        ret = (uint8)PORTB_REG.GPIODATA;
+        ret = (uint8)PORTB_GPIODATA_REG;
         break;
 
     case Dio_Port_C:
-        ret = (uint8)PORTC_REG.GPIODATA;
+        ret = (uint8)PORTC_GPIODATA_REG;
         break;
     case Dio_Port_D:
-        ret = (uint8)PORTD_REG.GPIODATA;
+        ret = (uint8)PORTD_GPIODATA_REG;
         break;
     case Dio_Port_E:
-        ret = (uint8)PORTE_REG.GPIODATA;
+        ret = (uint8)PORTE_GPIODATA_REG;
         break;
     case Dio_Port_F:
-        ret = (uint8)PORTF_REG.GPIODATA;
+        ret = (uint8)PORTF_GPIODATA_REG;
         break;
     default:
         /*error*/
@@ -189,22 +189,22 @@ void Dio_WritePort( enu_Dio_PortType PortId, uint8 Level)
     switch(PortId)
     {
     case Dio_Port_A:
-        PORTA_REG.GPIODATA = Level;
+        PORTA_GPIODATA_REG = Level;
         break;
     case Dio_Port_B:
-        PORTB_REG.GPIODATA = Level;
+        PORTB_GPIODATA_REG = Level;
         break;
     case Dio_Port_C:
-        PORTC_REG.GPIODATA = Level;
+        PORTC_GPIODATA_REG = Level;
         break;
     case Dio_Port_D:
-        PORTD_REG.GPIODATA = Level;
+        PORTD_GPIODATA_REG = Level;
         break;
     case Dio_Port_E:
-        PORTE_REG.GPIODATA = Level;
+        PORTE_GPIODATA_REG = Level;
         break;
     case Dio_Port_F:
-        PORTF_REG.GPIODATA = Level;
+        PORTF_GPIODATA_REG = Level;
         break;
     default:
         /*error*/
@@ -224,24 +224,24 @@ void Dio_FlipChannel( enu_Dio_ChannelType ChannelId)
     switch(PortId)
     {
     case Dio_Port_A:
-        ToggleBit(PORTA_REG.GPIODATA,ChannelPos);
+        ToggleBit(PORTA_GPIODATA_REG,ChannelPos);
         break;
 
     case Dio_Port_B:
-        ToggleBit(PORTB_REG.GPIODATA,ChannelPos);
+        ToggleBit(PORTB_GPIODATA_REG,ChannelPos);
         break;
 
     case Dio_Port_C:
-        ToggleBit(PORTC_REG.GPIODATA,ChannelPos);
+        ToggleBit(PORTC_GPIODATA_REG,ChannelPos);
         break;
     case Dio_Port_D:
-        ToggleBit(PORTD_REG.GPIODATA,ChannelPos);
+        ToggleBit(PORTD_GPIODATA_REG,ChannelPos);
         break;
     case Dio_Port_E:
-        ToggleBit(PORTE_REG.GPIODATA,ChannelPos);
+        ToggleBit(PORTE_GPIODATA_REG,ChannelPos);
         break;
     case Dio_Port_F:
-        ToggleBit(PORTF_REG.GPIODATA,ChannelPos);
+        ToggleBit(PORTF_GPIODATA_REG,ChannelPos);
         break;
     default:
         /*error*/
@@ -261,22 +261,22 @@ void Dio_FlipPort(enu_Dio_PortType PortId)
 	    switch(PortId)
     {
     case Dio_Port_A:
-        PORTA_REG.GPIODATA = ~ PORTA_REG.GPIODATA;
+        PORTA_GPIODATA_REG = ~ PORTA_GPIODATA_REG;
         break;
     case Dio_Port_B:
-        PORTB_REG.GPIODATA = ~PORTB_REG.GPIODATA;
+        PORTB_GPIODATA_REG = ~PORTB_GPIODATA_REG;
         break;
     case Dio_Port_C:
-        PORTC_REG.GPIODATA = ~PORTC_REG.GPIODATA;
+        PORTC_GPIODATA_REG = ~PORTC_GPIODATA_REG;
         break;
     case Dio_Port_D:
-        PORTD_REG.GPIODATA = ~PORTD_REG.GPIODATA;
+        PORTD_GPIODATA_REG = ~PORTD_GPIODATA_REG;
         break;
     case Dio_Port_E:
-        PORTE_REG.GPIODATA = ~PORTE_REG.GPIODATA;
+        PORTE_GPIODATA_REG = ~PORTE_GPIODATA_REG;
         break;
     case Dio_Port_F:
-        PORTF_REG.GPIODATA = ~PORTF_REG.GPIODATA;
+        PORTF_GPIODATA_REG= ~PORTF_GPIODATA_REG;
         break;
     default:
         /*error*/
